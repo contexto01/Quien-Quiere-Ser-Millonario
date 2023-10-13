@@ -1,4 +1,4 @@
-# Quien Quiere Ser Millonario en Powerpoint
+# Quien Quiere Ser Millonario En Powerpoint
 
 <div align="center">
     <a href="#">
@@ -79,3 +79,5 @@ El programa fue creado con las siguientes tecnologias:
 - [pptxgenjs](https://gitbrent.github.io/PptxGenJS/).
 - [chalk](https://www.npmjs.com/package/chalk).
 - [ora](https://www.npmjs.com/package/ora).
+
+[☝- Regresar](#quien-quiere-ser-millonario-en-powerpoint)
