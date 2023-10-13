@@ -25,7 +25,8 @@ En este caso node.js viene con NPM
 Clona el repositorio en tu terminal de confianza:
 
 ```sh
-git clone https://github.com/contexto01/Who-wants-to-be-a-millionaire
+git clone
+https://github.com/contexto01/Quien-Quiere-Ser-Millonario
 ```
 
 ## Paso 2 - Instalacion
