@@ -49,7 +49,7 @@ Aparece una serie de preguntas donde puedes responder o dejar en blanco:
 
 ![Imagen de las preguntas](https://i.ibb.co/1GDnW6n/imagen-2023-10-12-192319479.png)
 
-Insertaras **S** en caso que la informacion sea la que tu quieres
+Insertaras **S** en caso que la informacion sea la que tu quieres.
 
 ## Paso 5 - Ejecuta
 
