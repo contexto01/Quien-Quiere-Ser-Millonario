@@ -8,7 +8,7 @@
 
 ---
 
-Este es un repositorio donde puedes crear automáticamente una plantilla sobre quién quiere ser millonario en **powerpoint**, en el archivo `preguntas.js` donde hay 100 preguntas sobre el tema redes en español pero repito lo puedes cambiar luego
+Este es un repositorio donde puedes crear automáticamente una plantilla sobre quién quiere ser millonario en **powerpoint**, en el archivo `preguntas.js` donde hay 100 preguntas sobre el tema redes en español pero repito lo puedes cambiar luego.
 
 ## Requisitos
 
