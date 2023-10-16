@@ -19,6 +19,7 @@ const rl = ReadLine.createInterface({
 });
 
 let slideIndex = 0;
+let siguienteSlide;
 let slide;
 let slideActual;
 
@@ -111,70 +112,48 @@ for (let i = 0; i < 2; i++) {
         hyperlink: { slide: slideIndex + 20 },
       });
     }
-    if (i === 0) {
-      slideActual = 30;
-    } else {
-      slideActual = 20;
-    }
+
+    const esUltimaPregunta = index === PreguntasAleatorias.length - 1;
+
+    const slideConfig = {
+      12: slideIndex + 30,
+      22: slideIndex + 20,
+      default: i === 0 ? 30 : 20,
+    };
+
+    let slideActual = slideConfig[slideIndex] || slideConfig.default;
+
     slide.addText(`${index + 1}) ${preguntas[0].titulo}`, {
       ...options.Preguntas.Pregunta,
     });
 
-    slide.addText(preguntas[0].respuestas[0].texto, {
-      ...options.Preguntas.Pregunta1,
-      ...PreguntaStyle,
-    });
+    const agregarShapeYTexto = (respIndex) => {
+      slide.addText(preguntas[0].respuestas[respIndex].texto, {
+        ...options.Preguntas[`Pregunta${respIndex + 1}`],
+        ...PreguntaStyle,
+      });
 
-    slide.addShape(pres.ShapeType.roundRect, {
-      ...options.Preguntas.Pregunta1,
-      hyperlink: {
-        slide: preguntas[0].respuestas[0].correcta
+      if (slideIndex === 12 || slideIndex === 22) {
+        siguienteSlide = preguntas[0].respuestas[respIndex].correcta ? 42 : 41;
+      } else if (esUltimaPregunta) {
+        siguienteSlide = slideActual;
+      } else {
+        siguienteSlide = preguntas[0].respuestas[respIndex].correcta
           ? slideIndex + 1
-          : slideIndex + slideActual,
-      },
-    });
+          : slideIndex + slideActual;
+      }
 
-    slide.addText(preguntas[0].respuestas[1].texto, {
-      ...options.Preguntas.Pregunta2,
-      ...PreguntaStyle,
-    });
+      slide.addShape(pres.ShapeType.roundRect, {
+        ...options.Preguntas[`Pregunta${respIndex + 1}`],
+        hyperlink: {
+          slide: siguienteSlide,
+        },
+      });
+    };
 
-    slide.addShape(pres.ShapeType.roundRect, {
-      ...options.Preguntas.Pregunta2,
-      hyperlink: {
-        slide: preguntas[0].respuestas[1].correcta
-          ? slideIndex + 1
-          : slideIndex + slideActual,
-      },
-    });
-
-    slide.addText(preguntas[0].respuestas[2].texto, {
-      ...options.Preguntas.Pregunta3,
-      ...PreguntaStyle,
-    });
-
-    slide.addShape(pres.ShapeType.roundRect, {
-      ...options.Preguntas.Pregunta3,
-      hyperlink: {
-        slide: preguntas[0].respuestas[2].correcta
-          ? slideIndex + 1
-          : slideIndex + slideActual,
-      },
-    });
-
-    slide.addText(preguntas[0].respuestas[3].texto, {
-      ...options.Preguntas.Pregunta4,
-      ...PreguntaStyle,
-    });
-
-    slide.addShape(pres.ShapeType.roundRect, {
-      ...options.Preguntas.Pregunta4,
-      hyperlink: {
-        slide: preguntas[0].respuestas[3].correcta
-          ? slideIndex + 1
-          : slideIndex + slideActual,
-      },
-    });
+    for (let j = 0; j < 4; j++) {
+      agregarShapeYTexto(j);
+    }
   });
 }
 
